@@ -1,0 +1,217 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Smoke detector</title>
+        <meta charset="utf-8">
+        <style>
+            body {
+            background-color: rgb(250, 0, 25);
+            font-family: "Lucida Console";
+        }
+        h2{
+            color: rgb(145, 10, 10);
+            
+        }
+		
+		h3{
+            color: rgb(145, 10, 10);
+            
+        }
+        
+        p{
+            color: rgb(255, 255, 0);
+        }
+        
+        ul{
+         
+         color: rgb(255, 255, 0);   
+            
+        }
+        h1{
+            
+           color: rgb(255, 255, 0) 
+		}  
+        }
+        
+        em{
+            color: rgb(255, 213, 0);
+        }
+		
+		/* Add a black background color to the top navigation */
+.topnav {
+  background-color: ;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+#overflowTest {
+  background: rgb(250, 0, 50) ;
+  color: white;
+  padding: 15px;
+  width: 50%;
+  height: 100px;
+  overflow: scroll;
+  border: 1px solid #ccc;
+}
+
+.sidenav {
+  width: 300px;
+  position: fixed;
+  z-index: 1;
+  top: 10px;
+  left: 900px;
+  background: #eee;
+  overflow-x: hidden;
+  padding: 8px 0;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #2196F3;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #064579;
+}
+
+.main {
+  margin-left: 140px; /* Same width as the sidebar + left position in px */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+
+        </style>
+		
+		<link rel="icon" type="image/icon" href="images/BuringHouse.ico">
+	  
+    </head>
+    <body>
+        <div><h1><strong>Smoke Detector</strong> </h1></div>		
+		<div class="topnav">
+		<a href = "#code">Code</a>
+		<a href = "#materials">Materials</a>
+		<a href = "#CircuitDiagram">Circuit Diagram</a>
+		<a href = "#demo">Slides Explanation and Demostration Video</a>
+		
+		
+		</div>
+		
+		<div class="sidenav">
+  <a href="https://www.youtube.com/">UTUBE</a>
+  
+  
+</div>
+		
+        <h3> <em>By: Jessica and Shiloh </em></h3>
+        <p> Our project is a homemade, flammable replica of a modern type of fire alarm. A fire alarm helps in the real world because it can save lives by detecting whenever there is a fire. Our version is the “optical” type of fire alarm. It is called this because it sort of “sees” the smoke.
+</p>
+        <img src="images/SmokeAlarm.jpg" alt= "A red smoke alarm" height = "200">
+        <h2 id="materials"> Materials required </h2>
+        <ul> 
+        <li>One Arduino Uno</li>
+        <li>One Laser module</li>
+        <li>One Photocell module</li> 
+        <li> One small Box</li>
+        <li> Elastic Band(s)</li>
+        <li> Wires </li>
+        <li>One Breadboard</li>
+        </ul>
+       <img src="images/Arduino.jpg" alt=" Arduino" height= 250>
+        <h2 id="CircuitDiagram"> Circuit Diagram</h2>
+        <img src="https://docs.google.com/drawings/d/e/2PACX-1vRmTSVv-vTahQWSyU_d33CzBQtIBysoIcvVPx41k85GhpJOLxuqE2HY89L6NmumNsPdYE9oUO9zwkBg/pub?w=960&amp;h=720" alt= "Circuit Diagram" height= 264>
+        <p> This whole circuit will be in a box, connected to a battery as its power source. The box will have a hole in the bottom letting in any smoke. Basically the laser module will be pointing under the photocell module, but when the smoke enters it will scatter the light beam and some of it will shine on the photocell module. When it lands on the photocell module a really annoying buzzer is programmed to go off.
+</p>
+
+<h2 id="code">Code</h2>
+<p>Our code is basically a bunch of variables, and setting up the sensors. After that we basically just have one if statement telling the program what to do if light enters the photocell.<br>
+
+The only special thing about our code is the function tone();.This function needs two arguments, but can also take three. 
+The arguments are:<br>
+ 1. The pin number<br>
+ 2.The frequency in hertz<br>
+ 3.(optional) The duration
+ </p>
+ <div id="overflowTest"><i><br>
+			int PCellPin = A0; // select the analog input pin for the photoresistor<br>
+			int PCellValue = 0; // Photoresistor Value<br><br>
+
+			int laserPin = 12;// Digital Pin for the laser module<br><br>
+
+			int piezoPin = 8;// Digital pin for the piezo buzzer<br><br>
+
+			void setup() {<br>
+			  Serial.begin(9600); // Begin the serial moniter. 9600 bits per second<br>
+			  pinMode(laserPin, OUTPUT); // The laser is the output, meaning it can provide some energy to other circuits<br>  
+			  digitalWrite(laserPin, HIGH); // this basically turns the laser on<br>
+			}<br><br>
+
+			void loop() {<br><br>
+
+			  PCellValue = analogRead(PCellPin); // Read the photoresistor pin, a value from 1 to 2300; 1 meaning there's lot's of light entering the photoresistor, and 2300 meaning there's no light entering it.<br>
+			  Serial.println(PCellValue); // Print the values the photoreseitor is reading on the serial moniter<br>
+			  delay(20); // Wait for 20 milliseconds<br><br>
+
+			  digitalWrite(laserPin, HIGH); // Turning it on again??? I don't know why this is here<br><br>
+
+			// If the value of the photocell is less than 910 and the value is also less than 900, then turn the buzzer on ( the correct term isn't coming to me ).<br>
+			if( PCellValue < 910 && PCellValue > 900){<br><br>
+    
+			    tone(piezoPin, 1000, 100); // tone function, consult this webpage for more info<br><br>
+    
+			  }<br><br>
+  
+			}<br><br><br>
+		</i>
+
+</div>
+ <h2  id = "demo"> Slides Explanation</h2>
+ <p><a href="https://docs.google.com/presentation/d/12Us_u2uj7KtdO7S6xS-QItENCWjyy9ZlEXOKE36CFv0/edit#slide=id.p">Click this and go to present</a>
+     </p>
+ <h2>Demostration Video</h2>
+ <p><a href="https://youtu.be/Dv93dmciNZo">Click this</a>
+     </p>
+	 
+	
+<button onclick="myFunction()" id="myBtn">x</button>
+
+
+	 
+	 
+	 
+	 
+	 
+        
+    </body>
+</html>
