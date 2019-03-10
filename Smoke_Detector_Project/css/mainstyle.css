@@ -3,32 +3,32 @@
             font-family: "Lucida Console";
         }
         h2{
-            color: rgb(0, 255, 8);
+            color: rgb(255, 195, 0);
             
         }
 		
 		h3{
-            color: rgb(0, 255, 8);
+            color:rgb(255, 195, 0);
             
         }
         
         p{
-            color: rgb(0, 255, 8);
+            color: rgb(255, 195, 0);
         }
         
         ul{
          
-         color: rgb(0, 255, 8);   
+         color: rgb(255, 195, 0);   
             
         }
         h1{
             
-           color: rgb(255, 255, 0) 
-		}  
+           color: rgb(255, 195, 0); 
+		  
         }
         
         em{
-            color: rgb(0, 255, 8);
+            color: rgb(255, 195, 0);
         }
 		
 		/* Add a black background color to the top navigation */
